@@ -28,7 +28,27 @@ public class InsertionSort extends BasicSort implements ISorter
      */
     public void sort(){
         int[] data = canvas.getData();
-       
+         curI = 0;
+         curK = 1;
+         
+         while (curK < data.length) {
+            if(data[curK]   > data[curI]) {
+                swap(curK,curI);
+                canvas.redraw();
+                while(curI > 0){
+                    if(data[curI] < data[curI-1]){
+                        swap(curI, curI-1);
+                        canvas.redraw();
+                        curI = curI -1;
+                        
+                    }
+                }
+            }   
+                curI = curK;
+                curK= curK +1;
+            
+            }
+        
         //TODO: implement sort algorithm. You may use curI, curK as loop variables or define your own attributes.
         canvas.reset();
         canvas.redraw();
